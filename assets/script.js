@@ -49,10 +49,10 @@ starbtn.addEventListener ("click", function(){
         newh1.innerHTML= randqs;
 
         var list = document.createElement ("ul");
-        var answcorrect = document.createElement("li")
-        var answ1 = document.createElement("li");
-        var answ2 = document.createElement("li");
-        var answ3 = document.createElement("li");
+        var answcorrect = document.createElement("button")
+        var answ1 = document.createElement("button");
+        var answ2 = document.createElement("button");
+        var answ3 = document.createElement("button");
 
         newh1.appendChild(list);
         list.appendChild(answcorrect);
@@ -60,10 +60,11 @@ starbtn.addEventListener ("click", function(){
         list.appendChild(answ2);
         list.appendChild(answ3);
 
-        answcorrect.textContent ="Correct";
-        answ1.textContent = "inc1";
-        answ1.textContent = "inc2";
-        answ1.textContent = "inc3";
+
+        answcorrect.textContent = data.results[randomquestion].correct_answer;
+        answ1.textContent = data.results[randomquestion].incorrect_answers[0];
+        answ2.textContent = data.results[randomquestion].incorrect_answers[1];
+        answ3.textContent = data.results[randomquestion].incorrect_answers[2];
 
     }
 
