@@ -26,7 +26,7 @@ starbtn.addEventListener ("click", function(){
     questlength = qlength.value; 
     questDif = difcat.value;
 
-    requestUrl = `https://opentdb.com/api.php?amount=${questlength}&difficulty=${questDif}`;
+    requestUrl = `https://opentdb.com/api.php?amount=${questlength}&difficulty=${questDif}&type=multiple`;
 
 
     fetch(requestUrl)
