@@ -66,11 +66,45 @@ starbtn.addEventListener ("click", function(){
         answ2.textContent = data.results[randomquestion].incorrect_answers[1];
         answ3.textContent = data.results[randomquestion].incorrect_answers[2];
 
+        var initialarray = [answcorrect,answ1, answ2, answ3];
+
+        // console.log(initialarray)
+        // function shuffle(array) {
+        //     var arraycount = array.length, randomIndex;
+
+        //     while (initialarray != 0){
+        //         randomized = Math.floor(Math.random()*arraycount);
+        //         arraycount--;
+        //         [array[arraycount], array[randomIndex]] = [
+        //             array[randomIndex], array[arraycount]];
+            // }
+        //     return array;
+            
+        // }
+        // shuffle(initialarray);
+        // console.log(initialarray);
     }
 
 
 
 })
+
+
+
+var newarray = ["ran1","ran2","ran3","ran4"]
+
+for(var i=0; i<newarray.length; i++){
+    var removedEl = Math.floor(Math.random()*newarray.length);
+    console.log(removedEl);
+   
+    var response[i]= newarray[removedEl];
+    newarray.splice(removedEl,1);
+    console.log(response1);
+    console.log(newarray);
+
+}
+
+    
 
 
 // Category: 
