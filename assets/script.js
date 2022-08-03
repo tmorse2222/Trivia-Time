@@ -1,10 +1,10 @@
 var starbtn = document.getElementById("startButton");
 var qlength = document.querySelector("#length");
-var answers = document.querySelector("#answers")
-
+var answers = document.querySelector("#answers");
 
 // var questcat ="11";
-var difcat = "Any Category";
+var difcat = document.querySelector(`#difficulty`);
+var questDif = ``;
 
 var questlength = "";
 
@@ -26,11 +26,10 @@ points = 0;
 starbtn.addEventListener ("click", function(){
     starbtn.textContent="Next Question";
     questlength = qlength.value; 
+    questDif = difcat.value;
 
-    requestUrl = "https://opentdb.com/api.php?amount=" + questlength + "&type=multiple";
+    requestUrl = `https://opentdb.com/api.php?amount=${questlength}&difficulty=${questDif}&type=multiple`;
 
-
-    console.log(requestUrl)
 
     fetch(requestUrl)
     .then(function (response){
