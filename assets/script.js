@@ -72,7 +72,11 @@ starbtn.addEventListener ("click", function(){
 
 })
 
-
+fetch(`http://www.thecocktaildb.com/api/json/v1/1/random.php`)
+.then(function (response){
+    return response.json();
+    console.log(response);
+});
 // Category: 
 // Any Category-- Removed
 // General Knowledge--9
