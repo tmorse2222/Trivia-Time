@@ -153,8 +153,10 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
     console.log(data);
     var drinkArray = data.drinks[0];
     var drinkName = drinkArray.strDrink;
+    var ingredients = [];
     if (drinkArray.strIngredient1 != null){
-        alert(drinkArray.strIngredient1)
+        ingredients.push(drinkArray.strIngredient1);
+        alert(ingredients);
     }
 });
 // for(var i=0; i<newarray.length; i++){
