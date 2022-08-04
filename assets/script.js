@@ -98,6 +98,8 @@ starbtn.addEventListener ("click", function(){
             if(answ1.textContent == data.results[randomquestion].correct_answer){
                 points++;
                 alert(points);
+                // added Cocktail function to click
+                cocktail();
             } else { 
                 alert("Incorrect");
                 points--;
@@ -109,6 +111,7 @@ starbtn.addEventListener ("click", function(){
           
                 points++;
                 alert(points);
+                cocktail();
             } else { 
                 alert("Incorrect");
                 points--;
@@ -119,6 +122,7 @@ starbtn.addEventListener ("click", function(){
             if(answ3.textContent == data.results[randomquestion].correct_answer){
                 points++;
                 alert(points);
+                cocktail();
             } else { 
                 alert("Incorrect");
                 points--;
@@ -129,6 +133,7 @@ starbtn.addEventListener ("click", function(){
             if(answ4.textContent = data.results[randomquestion].correct_answer){    
                 points++;
                 alert(points);
+                cocktail();
             } else { 
                 alert("Incorrect"); 
                 points--;
@@ -144,7 +149,7 @@ starbtn.addEventListener ("click", function(){
 console.log(points)
 
 // Cocktail API work
-
+function cocktail() {
 fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
 .then(function (response){
     return response.json();
@@ -204,6 +209,7 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
     $(`#cocktailName`).text(`${drinkName}`);
     $(`#ingredients`).text(`Ingredients: ${ingredients}`);
 });
+};
 // for(var i=0; i<newarray.length; i++){
 //     var removedEl = Math.floor(Math.random()*newarray.length);
 //     console.log(removedEl);
