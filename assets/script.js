@@ -218,6 +218,23 @@ $(`#saveButton`).click(function(){
     var key = $(this).parent().children(`h3`).text();
     var content = $(this).parent().children(`p`).text();
     window.localStorage.setItem(`${key}`, `${content}`);
+    // Function portion to allow list item to be displayed 
+          // Var for creation & content
+          var saveItem = document.createElement(`p`);
+          var saveValue = localStorage.key(key);
+          var saveInfo = `${saveValue}`;
+          var saveButton = document.createElement(`p`);
+          var returnButton = `<button class="saveBtn">Ingredients</button>`;
+          var contain = document.createElement(`div`);
+      // Actions to display info
+          $(saveItem).html(saveInfo);
+          $(saveItem).attr(`class`, `savedCocktail col-6`)
+          $(saveButton).attr(`class`, `ingredients`)
+          $(saveButton).html(returnButton);
+          $(contain).append(saveItem);
+          $(contain).append(saveButton);
+          $(contain).attr(`class`, `saveContain row`);
+          $(`#savedCocktails`).append(contain); 
 });
 
 // Function to display saved cocktails on load
