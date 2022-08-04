@@ -140,17 +140,18 @@ starbtn.addEventListener ("click", function(){
 
 })
 
-<<<<<<< HEAD
-fetch(`http://www.thecocktaildb.com/api/json/v1/1/random.php`)
-.then(function (response){
-    return response.json();
-    console.log(response);
-});
-=======
 
 console.log(points)
 
+// Cocktail API work
 
+fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+.then(function (response){
+    return response.json();
+})
+.then(function (data) {
+    console.log(data);
+});
 // for(var i=0; i<newarray.length; i++){
 //     var removedEl = Math.floor(Math.random()*newarray.length);
 //     console.log(removedEl);
@@ -165,7 +166,6 @@ console.log(points)
     
 
 
->>>>>>> origin
 // Category: 
 // Any Category-- Removed
 // General Knowledge--9
