@@ -154,10 +154,53 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
     var drinkArray = data.drinks[0];
     var drinkName = drinkArray.strDrink;
     var ingredients = [];
+    // If functions to check ingredients
     if (drinkArray.strIngredient1 != null){
         ingredients.push(drinkArray.strIngredient1);
-        alert(ingredients);
-    }
+    };
+    if (drinkArray.strIngredient2 != null){
+        ingredients.push(drinkArray.strIngredient2);
+    };
+    if (drinkArray.strIngredient3 != null){
+        ingredients.push(drinkArray.strIngredient3);
+    };
+    if (drinkArray.strIngredient4 != null){
+        ingredients.push(drinkArray.strIngredient4);
+    };
+    if (drinkArray.strIngredient5 != null){
+        ingredients.push(drinkArray.strIngredient5);
+    };
+    if (drinkArray.strIngredient6 != null){
+        ingredients.push(drinkArray.strIngredient6);
+    };
+    if (drinkArray.strIngredient7 != null){
+        ingredients.push(drinkArray.strIngredient7);
+    };
+    if (drinkArray.strIngredient8 != null){
+        ingredients.push(drinkArray.strIngredient8);
+    };
+    if (drinkArray.strIngredient9 != null){
+        ingredients.push(drinkArray.strIngredient9);
+    };
+    if (drinkArray.strIngredient10 != null){
+        ingredients.push(drinkArray.strIngredient10);
+    };
+    if (drinkArray.strIngredient11 != null){
+        ingredients.push(drinkArray.strIngredient11);
+    };
+    if (drinkArray.strIngredient12 != null){
+        ingredients.push(drinkArray.strIngredient12);
+    };
+    if (drinkArray.strIngredient13 != null){
+        ingredients.push(drinkArray.strIngredient13);
+    };
+    if (drinkArray.strIngredient14 != null){
+        ingredients.push(drinkArray.strIngredient14);
+    };
+    if (drinkArray.strIngredient15 != null){
+        ingredients.push(drinkArray.strIngredient15);
+    };
+    alert(ingredients);
 });
 // for(var i=0; i<newarray.length; i++){
 //     var removedEl = Math.floor(Math.random()*newarray.length);
