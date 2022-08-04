@@ -208,6 +208,8 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
     // Portion to display Cocktail info
     $(`#cocktailName`).text(`${drinkName}`);
     $(`#ingredients`).text(`Ingredients: ${ingredients}`);
+    // Portion to display save button
+    $(`#saveButton`).css(`display`, `unset`);
 });
 };
 // for(var i=0; i<newarray.length; i++){
