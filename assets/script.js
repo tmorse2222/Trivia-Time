@@ -212,6 +212,11 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
     $(`#saveButton`).css(`display`, `unset`);
 });
 };
+
+// Click function for save button
+$(`#saveButton`).click(function(){
+    alert(`working`);
+});
 // for(var i=0; i<newarray.length; i++){
 //     var removedEl = Math.floor(Math.random()*newarray.length);
 //     console.log(removedEl);
