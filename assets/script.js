@@ -10,6 +10,8 @@ var questlength = "";
 
 var requestUrl = "";
 
+var coctailNameSave = ""
+
 points = 0;
 
 // if(questcat == "Any Category" && difcat =="Any Type"){
@@ -216,18 +218,19 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
 // Click function for save button
 $(`#saveButton`).click(function(){
     var key = $(this).parent().children(`h3`).text();
+    cocktailNameSave = key;
     var content = $(this).parent().children(`p`).text();
     window.localStorage.setItem(`${key}`, `${content}`);
     // Function portion to allow list item to be displayed 
           // Var for creation & content
           var saveItem = document.createElement(`p`);
-          var saveValue = localStorage.key(key);
+          var saveValue = localStorage.key(cocktailNameSave);
           var saveInfo = `${saveValue}`;
           var saveButton = document.createElement(`p`);
           var returnButton = `<button class="saveBtn">Ingredients</button>`;
           var contain = document.createElement(`div`);
       // Actions to display info
-          $(saveItem).html(saveInfo);
+          $(saveItem).html(cocktailNameSave);
           $(saveItem).attr(`class`, `savedCocktail col-6`)
           $(saveButton).attr(`class`, `ingredients`)
           $(saveButton).html(returnButton);
@@ -235,6 +238,7 @@ $(`#saveButton`).click(function(){
           $(contain).append(saveButton);
           $(contain).attr(`class`, `saveContain row`);
           $(`#savedCocktails`).append(contain); 
+          alert(cocktailNameSave);
 });
 
 // Function to display saved cocktails on load
