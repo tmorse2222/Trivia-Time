@@ -200,7 +200,9 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
     if (drinkArray.strIngredient15 != null){
         ingredients.push(drinkArray.strIngredient15);
     };
-    alert(ingredients);
+    // Portion to display Cocktail info
+    $(`#cocktailName`).text(`${drinkName}`);
+    $(`#ingredients`).text(`Ingredients: ${ingredients}`);
 });
 // for(var i=0; i<newarray.length; i++){
 //     var removedEl = Math.floor(Math.random()*newarray.length);
