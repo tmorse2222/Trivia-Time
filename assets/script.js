@@ -218,8 +218,44 @@ $(`#saveButton`).click(function(){
     var key = $(this).parent().children(`h3`).text();
     var content = $(this).parent().children(`p`).text();
     window.localStorage.setItem(`${key}`, `${content}`);
-    alert(window.localStorage.getItem(`${key}`));
 });
+
+// Function to display saved cocktails on load
+$(document).ready( function() {
+    // For function allowing elements to be created for each avalible key
+    for (let i = 0; i < localStorage.length; i++ ) {
+      // Var for creation & content
+      var saveItem = document.createElement(`p`);
+      var saveValue = localStorage.key(i);
+      var saveInfo = `${saveValue}`;
+      var saveButton = document.createElement(`p`);
+      var returnButton = `<button class="saveBtn">Ingredients</button>`;
+      var contain = document.createElement(`div`);
+  // Actions to display info
+      $(saveItem).html(saveInfo);
+      $(saveItem).attr(`class`, `savedCocktail col-6`)
+      $(saveButton).attr(`class`, `ingredients`)
+      $(saveButton).html(returnButton);
+      $(contain).append(saveItem);
+      $(contain).append(saveButton);
+      $(contain).attr(`class`, `saveContain row`);
+      $(`#savedCocktails`).append(contain); 
+    }
+  });
+  // Function removing elements and keys from local storage when "clear" button is selected
+$(`#clearButton`).click( function () {
+    $(`#savedCocktails`).children(`div`).remove();
+  localStorage.clear();
+})
+// Function for displaying ingredients in saved cocktail list
+$(document).on(`click`, `.ingredients`, function() {
+    var city = $(this).parent().children(`.savedCocktail`).text();
+    var ingredients = window.localStorage.getItem(city);
+    var content = document.createElement(`p`);
+    $(content).html(ingredients);
+    $(this).parent().append(content);
+});
+
 // for(var i=0; i<newarray.length; i++){
 //     var removedEl = Math.floor(Math.random()*newarray.length);
 //     console.log(removedEl);
