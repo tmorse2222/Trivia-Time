@@ -215,7 +215,10 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
 
 // Click function for save button
 $(`#saveButton`).click(function(){
-    alert(`working`);
+    var key = $(this).parent().children(`h3`).text();
+    var content = $(this).parent().children(`p`).text();
+    window.localStorage.setItem(`${key}`, `${content}`);
+    alert(window.localStorage.getItem(`${key}`));
 });
 // for(var i=0; i<newarray.length; i++){
 //     var removedEl = Math.floor(Math.random()*newarray.length);
