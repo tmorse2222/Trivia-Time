@@ -151,6 +151,8 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
 })
 .then(function (data) {
     console.log(data);
+    var drinkName = data.drinks[0].strDrink;
+    alert(drinkName);
 });
 // for(var i=0; i<newarray.length; i++){
 //     var removedEl = Math.floor(Math.random()*newarray.length);
