@@ -275,6 +275,7 @@ $(document).on(`click`, `.ingredients`, function() {
     var content = document.createElement(`p`);
     $(content).html(ingredients);
     $(this).parent().append(content);
+    $(this).css(`display`, `none`);
 });
 
 // for(var i=0; i<newarray.length; i++){
