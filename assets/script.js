@@ -1,6 +1,7 @@
 var starbtn = document.getElementById("startButton");
 var qlength = document.querySelector("#length");
 var answers = document.querySelector("#answers");
+var settingscont = document.querySelector("#settingscont")
 
 // var questcat ="11";
 var difcat = document.querySelector(`#difficulty`);
@@ -26,14 +27,14 @@ points = 0;
 
 
 starbtn.addEventListener ("click", function(){
-<<<<<<< HEAD
+
     starbtn.style.display="none";
     starbtn.textContent = "Next";
     
-=======
+
     starbtn.textContent="Next Question";
-    questlength = qlength.value; 
->>>>>>> 985e1ff5b4b7a6a23240c6a74e7be8300b6f9860
+    questlength =  1; 
+
     questDif = difcat.value;
 
     requestUrl = `https://opentdb.com/api.php?amount=${questlength}&difficulty=${questDif}&type=multiple`;
@@ -118,6 +119,7 @@ starbtn.addEventListener ("click", function(){
             } else { 
                 alert("Incorrect");
                 points--;
+                wronganswer();
             }
         })
         
@@ -130,6 +132,7 @@ starbtn.addEventListener ("click", function(){
             } else { 
                 alert("Incorrect");
                 points--;
+                wronganswer();
             }
         })
         
@@ -141,6 +144,7 @@ starbtn.addEventListener ("click", function(){
             } else { 
                 alert("Incorrect");
                 points--;
+                wronganswer();
             }
         })
         
@@ -152,6 +156,7 @@ starbtn.addEventListener ("click", function(){
             } else { 
                 alert("Incorrect"); 
                 points--;
+                wronganswer();
             }
         })
     }
@@ -159,7 +164,6 @@ starbtn.addEventListener ("click", function(){
 
 
 })
-
 
 
 console.log(points)
@@ -311,3 +315,31 @@ $(document).on(`click`, `.ingredients`, function() {
 // Entertainment: Books--10 
 // Entertainment: Music--11
 // Difficulty: easy=easy, medium=medium, hard= hard
+
+
+
+function wronganswer(){
+
+    var randomfacturl =   "https://api.api-ninjas.com/v1/facts?limit=1"
+  
+
+    fetch(randomfacturl, {
+        method: 'GET',
+        headers: { 'X-Api-Key': 'LeEU0FJqY5POXfUkaonQlQ==UynTFBrXcvGeU0yY'},
+        contentType: 'application/json',
+    })
+    .then(function (response){
+        return response.json();
+        console.log(response);
+
+    })
+    .then(function (data) {
+        console.log(data);
+        var newpar = document.createElement("p")
+        settingscont.appendChild(newpar);
+        newpar.innerHTML= "You dont seem so smart. Here is some information for ya: " + data[0].fact;
+
+    });
+
+
+}
