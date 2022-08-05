@@ -142,7 +142,6 @@ starbtn.addEventListener ("click", function(){
 })
 
 
-console.log(points)
 
 
 // for(var i=0; i<newarray.length; i++){
@@ -165,3 +164,19 @@ console.log(points)
 // Entertainment: Books--10 
 // Entertainment: Music--11
 // Difficulty: easy=easy, medium=medium, hard= hard
+
+var randmonst = "https://app.pixelencounter.com/api/basic/monsters/random"
+
+
+console.log(randmonst)
+
+fetch(randmonst)
+.then(function (response){
+    return response.json();
+    console.log(response);
+
+})
+.then(function (data) {
+    console.log(data);
+    randomquestions(data);
+});
