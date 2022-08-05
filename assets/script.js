@@ -26,9 +26,14 @@ points = 0;
 
 
 starbtn.addEventListener ("click", function(){
+<<<<<<< HEAD
     starbtn.style.display="none";
     starbtn.textContent = "Next";
     
+=======
+    starbtn.textContent="Next Question";
+    questlength = qlength.value; 
+>>>>>>> 985e1ff5b4b7a6a23240c6a74e7be8300b6f9860
     questDif = difcat.value;
 
     requestUrl = `https://opentdb.com/api.php?amount=${questlength}&difficulty=${questDif}&type=multiple`;
