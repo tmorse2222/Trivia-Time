@@ -6,7 +6,7 @@ var answers = document.querySelector("#answers");
 var difcat = document.querySelector(`#difficulty`);
 var questDif = ``;
 
-var questlength = "";
+var questlength = 1;
 
 var requestUrl = "";
 
@@ -26,6 +26,9 @@ points = 0;
 
 
 starbtn.addEventListener ("click", function(){
+    starbtn.style.display="none";
+    starbtn.textContent = "Next";
+    
     starbtn.textContent="Next Question";
     questlength = qlength.value; 
     questDif = difcat.value;
@@ -87,19 +90,30 @@ starbtn.addEventListener ("click", function(){
 
    
 
-        answ1.textContent = actualresponse1;
-        answ2.textContent = actualresponse2;
-        answ3.textContent = actualresponse3;
-        answ4.textContent = actualresponse4;
+        answ1.innerHTML = actualresponse1;
+        answ2.innerHTML = actualresponse2;
+        answ3.innerHTML = actualresponse3;
+        answ4.innerHTML = actualresponse4;
 
 
         console.log(data.results[randomquestion].correct_answer)
 
+        
+        function hidquestion(){
+            starbtn.style.display="inline-block";
+            list.remove();
+            newh1.remove();
+
+        }
 
         answ1.addEventListener("click", function(){
             if(answ1.textContent == data.results[randomquestion].correct_answer){
                 points++;
+
+                hidquestion();
+
                 alert(points);
+
                 // added Cocktail function to click
                 cocktail();
             } else { 
@@ -112,7 +126,11 @@ starbtn.addEventListener ("click", function(){
             if(answ2.textContent == data.results[randomquestion].correct_answer){
           
                 points++;
+
+                hidquestion();
+
                 alert(points);
+
                 cocktail();
             } else { 
                 alert("Incorrect");
@@ -123,7 +141,11 @@ starbtn.addEventListener ("click", function(){
         answ3.addEventListener("click", function(){
             if(answ3.textContent == data.results[randomquestion].correct_answer){
                 points++;
+
+                hidquestion();
+
                 alert(points);
+
                 cocktail();
             } else { 
                 alert("Incorrect");
@@ -134,7 +156,11 @@ starbtn.addEventListener ("click", function(){
         answ4.addEventListener("click", function(){
             if(answ4.textContent = data.results[randomquestion].correct_answer){    
                 points++;
+
+                hidquestion();
+
                 alert(points);
+
                 cocktail();
             } else { 
                 alert("Incorrect"); 
@@ -146,6 +172,7 @@ starbtn.addEventListener ("click", function(){
 
 
 })
+
 
 
 console.log(points)
@@ -275,7 +302,10 @@ $(document).on(`click`, `.ingredients`, function() {
     var content = document.createElement(`p`);
     $(content).html(ingredients);
     $(this).parent().append(content);
+
+
     $(this).css(`display`, `none`);
+
 });
 
 // for(var i=0; i<newarray.length; i++){
