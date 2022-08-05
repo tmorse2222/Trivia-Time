@@ -1,14 +1,16 @@
 var starbtn = document.getElementById("startButton");
 var qlength = document.querySelector("#length");
-var answers = document.querySelector("#answers")
-
+var answers = document.querySelector("#answers");
 
 // var questcat ="11";
-var difcat = "Any Category";
+var difcat = document.querySelector(`#difficulty`);
+var questDif = ``;
 
-var questlength = "";
+var questlength = 1;
 
 var requestUrl = "";
+
+var coctailNameSave = ""
 
 points = 0;
 
@@ -24,13 +26,13 @@ points = 0;
 
 
 starbtn.addEventListener ("click", function(){
-    starbtn.textContent="Next Question";
-    questlength = qlength.value; 
+    starbtn.style.display="none";
+    starbtn.textContent = "Next";
+    
+    questDif = difcat.value;
 
-    requestUrl = "https://opentdb.com/api.php?amount=" + questlength + "&type=multiple";
+    requestUrl = `https://opentdb.com/api.php?amount=${questlength}&difficulty=${questDif}&type=multiple`;
 
-
-    console.log(requestUrl)
 
     fetch(requestUrl)
     .then(function (response){
@@ -86,19 +88,28 @@ starbtn.addEventListener ("click", function(){
 
    
 
-        answ1.textContent = actualresponse1;
-        answ2.textContent = actualresponse2;
-        answ3.textContent = actualresponse3;
-        answ4.textContent = actualresponse4;
+        answ1.innerHTML = actualresponse1;
+        answ2.innerHTML = actualresponse2;
+        answ3.innerHTML = actualresponse3;
+        answ4.innerHTML = actualresponse4;
 
 
         console.log(data.results[randomquestion].correct_answer)
 
+        
+        function hidquestion(){
+            starbtn.style.display="inline-block";
+            list.remove();
+            newh1.remove();
+
+        }
 
         answ1.addEventListener("click", function(){
             if(answ1.textContent == data.results[randomquestion].correct_answer){
                 points++;
-                alert(points);
+                hidquestion();
+                // added Cocktail function to click
+                cocktail();
             } else { 
                 alert("Incorrect");
                 points--;
@@ -109,7 +120,8 @@ starbtn.addEventListener ("click", function(){
             if(answ2.textContent == data.results[randomquestion].correct_answer){
           
                 points++;
-                alert(points);
+                hidquestion();
+                cocktail();
             } else { 
                 alert("Incorrect");
                 points--;
@@ -119,7 +131,8 @@ starbtn.addEventListener ("click", function(){
         answ3.addEventListener("click", function(){
             if(answ3.textContent == data.results[randomquestion].correct_answer){
                 points++;
-                alert(points);
+                hidquestion();
+                cocktail();
             } else { 
                 alert("Incorrect");
                 points--;
@@ -129,7 +142,8 @@ starbtn.addEventListener ("click", function(){
         answ4.addEventListener("click", function(){
             if(answ4.textContent = data.results[randomquestion].correct_answer){    
                 points++;
-                alert(points);
+                hidquestion();
+                cocktail();
             } else { 
                 alert("Incorrect"); 
                 points--;
@@ -143,6 +157,134 @@ starbtn.addEventListener ("click", function(){
 
 
 
+console.log(points)
+
+// Cocktail API work
+function cocktail() {
+fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+.then(function (response){
+    return response.json();
+})
+.then(function (data) {
+    console.log(data);
+    var drinkArray = data.drinks[0];
+    var drinkName = drinkArray.strDrink;
+    var ingredients = [];
+    // If functions to check ingredients
+    if (drinkArray.strIngredient1 != null){
+        ingredients.push(drinkArray.strIngredient1);
+    };
+    if (drinkArray.strIngredient2 != null){
+        ingredients.push(drinkArray.strIngredient2);
+    };
+    if (drinkArray.strIngredient3 != null){
+        ingredients.push(drinkArray.strIngredient3);
+    };
+    if (drinkArray.strIngredient4 != null){
+        ingredients.push(drinkArray.strIngredient4);
+    };
+    if (drinkArray.strIngredient5 != null){
+        ingredients.push(drinkArray.strIngredient5);
+    };
+    if (drinkArray.strIngredient6 != null){
+        ingredients.push(drinkArray.strIngredient6);
+    };
+    if (drinkArray.strIngredient7 != null){
+        ingredients.push(drinkArray.strIngredient7);
+    };
+    if (drinkArray.strIngredient8 != null){
+        ingredients.push(drinkArray.strIngredient8);
+    };
+    if (drinkArray.strIngredient9 != null){
+        ingredients.push(drinkArray.strIngredient9);
+    };
+    if (drinkArray.strIngredient10 != null){
+        ingredients.push(drinkArray.strIngredient10);
+    };
+    if (drinkArray.strIngredient11 != null){
+        ingredients.push(drinkArray.strIngredient11);
+    };
+    if (drinkArray.strIngredient12 != null){
+        ingredients.push(drinkArray.strIngredient12);
+    };
+    if (drinkArray.strIngredient13 != null){
+        ingredients.push(drinkArray.strIngredient13);
+    };
+    if (drinkArray.strIngredient14 != null){
+        ingredients.push(drinkArray.strIngredient14);
+    };
+    if (drinkArray.strIngredient15 != null){
+        ingredients.push(drinkArray.strIngredient15);
+    };
+    // Portion to display Cocktail info
+    $(`#cocktailName`).text(`${drinkName}`);
+    $(`#ingredients`).text(`Ingredients: ${ingredients}`);
+    // Portion to display save button
+    $(`#saveButton`).css(`display`, `unset`);
+});
+};
+
+// Click function for save button
+$(`#saveButton`).click(function(){
+    var key = $(this).parent().children(`h3`).text();
+    cocktailNameSave = key;
+    var content = $(this).parent().children(`p`).text();
+    window.localStorage.setItem(`${key}`, `${content}`);
+    // Function portion to allow list item to be displayed 
+          // Var for creation & content
+          var saveItem = document.createElement(`p`);
+          var saveValue = localStorage.key(cocktailNameSave);
+          var saveInfo = `${saveValue}`;
+          var saveButton = document.createElement(`p`);
+          var returnButton = `<button class="saveBtn">Ingredients</button>`;
+          var contain = document.createElement(`div`);
+      // Actions to display info
+          $(saveItem).html(cocktailNameSave);
+          $(saveItem).attr(`class`, `savedCocktail col-6`)
+          $(saveButton).attr(`class`, `ingredients`)
+          $(saveButton).html(returnButton);
+          $(contain).append(saveItem);
+          $(contain).append(saveButton);
+          $(contain).attr(`class`, `saveContain row`);
+          $(`#savedCocktails`).append(contain); 
+          alert(cocktailNameSave);
+});
+
+// Function to display saved cocktails on load
+$(document).ready( function() {
+    // For function allowing elements to be created for each avalible key
+    for (let i = 0; i < localStorage.length; i++ ) {
+      // Var for creation & content
+      var saveItem = document.createElement(`p`);
+      var saveValue = localStorage.key(i);
+      var saveInfo = `${saveValue}`;
+      var saveButton = document.createElement(`p`);
+      var returnButton = `<button class="saveBtn">Ingredients</button>`;
+      var contain = document.createElement(`div`);
+  // Actions to display info
+      $(saveItem).html(saveInfo);
+      $(saveItem).attr(`class`, `savedCocktail col-6`)
+      $(saveButton).attr(`class`, `ingredients`)
+      $(saveButton).html(returnButton);
+      $(contain).append(saveItem);
+      $(contain).append(saveButton);
+      $(contain).attr(`class`, `saveContain row`);
+      $(`#savedCocktails`).append(contain); 
+    }
+  });
+  // Function removing elements and keys from local storage when "clear" button is selected
+$(`#clearButton`).click( function () {
+    $(`#savedCocktails`).children(`div`).remove();
+  localStorage.clear();
+})
+// Function for displaying ingredients in saved cocktail list
+$(document).on(`click`, `.ingredients`, function() {
+    var city = $(this).parent().children(`.savedCocktail`).text();
+    var ingredients = window.localStorage.getItem(city);
+    var content = document.createElement(`p`);
+    $(content).html(ingredients);
+    $(this).parent().append(content);
+});
 
 // for(var i=0; i<newarray.length; i++){
 //     var removedEl = Math.floor(Math.random()*newarray.length);
@@ -164,19 +306,3 @@ starbtn.addEventListener ("click", function(){
 // Entertainment: Books--10 
 // Entertainment: Music--11
 // Difficulty: easy=easy, medium=medium, hard= hard
-
-var randmonst = "https://app.pixelencounter.com/api/basic/monsters/random"
-
-
-console.log(randmonst)
-
-fetch(randmonst)
-.then(function (response){
-    return response.json();
-    console.log(response);
-
-})
-.then(function (data) {
-    console.log(data);
-    randomquestions(data);
-});
