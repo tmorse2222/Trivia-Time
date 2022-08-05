@@ -16,6 +16,8 @@ var coctailNameSave = ""
 
 points = 0;
 
+var newpar = null ;
+
 // if(questcat == "Any Category" && difcat =="Any Type"){
 //     requesturl = "https://opentdb.com/api.php?amount=25&type=multiple";
 // } else if (questcat == "Any Category" && difcat !=="Any Type"){
@@ -40,6 +42,7 @@ starbtn.addEventListener ("click", function(){
 
     requestUrl = `https://opentdb.com/api.php?amount=${questlength}&difficulty=${questDif}&type=multiple`;
 
+    clearanswer();
 
     fetch(requestUrl)
     .then(function (response){
@@ -61,30 +64,33 @@ starbtn.addEventListener ("click", function(){
         newh1.innerHTML= randqs;
 
         var list = document.createElement ("ul");
-        var answ4 = document.createElement("button")
-        var answ1 = document.createElement("button");
+        var answ1 = document.createElement("button")
         var answ2 = document.createElement("button");
         var answ3 = document.createElement("button");
+        var answ4 = document.createElement("button");
 
         newh1.appendChild(list);
-        list.appendChild(answ4);
+    
         list.appendChild(answ1);
         list.appendChild(answ2);
         list.appendChild(answ3);
+        list.appendChild(answ4);
 
+    
+        
 
         var scransw4 = data.results[randomquestion].correct_answer;
         var scransw1 = data.results[randomquestion].incorrect_answers[0];
         var scransw2 = data.results[randomquestion].incorrect_answers[1];
         var scransw3 = data.results[randomquestion].incorrect_answers[2];
 
-        var initialarray = [scransw4,scransw1, scransw2, scransw3];
+        var initialarray = [scransw1,scransw4,scransw2, scransw3];
 
         function shuffle(array){
             array.sort(() => Math.random()-.5);
         }
 
-        shuffle(initialarray);
+        // shuffle(initialarray);
 
       
 
@@ -101,7 +107,14 @@ starbtn.addEventListener ("click", function(){
         answ4.innerHTML = actualresponse4;
 
 
-        console.log(data.results[randomquestion].correct_answer)
+        console.log("correct answer" + data.results[randomquestion].correct_answer);
+
+        console.log("break");
+
+        console.log(`response 1: ${actualresponse1}`);
+        console.log(`response 2: ${actualresponse2}`);
+        console.log(`response 3: ${actualresponse3}`);
+        console.log(`response 4: ${actualresponse4}`);
 
         
         function hidquestion(){
@@ -112,59 +125,64 @@ starbtn.addEventListener ("click", function(){
         }
 
         answ1.addEventListener("click", function(){
-            if(answ1.textContent == data.results[randomquestion].correct_answer){
+            if(actualresponse1 == data.results[randomquestion].correct_answer){
+                clearanswer();
                 points++;
                 hidquestion();
-                // added Cocktail function to click
                 cocktail();
             } else { 
-                alert("Incorrect");
                 points--;
                 wronganswer();
+                clearanswer();
             }
         })
         
         answ2.addEventListener("click", function(){
-            if(answ2.textContent == data.results[randomquestion].correct_answer){
-          
+            if(actualresponse2 == data.results[randomquestion].correct_answer){
+                clearanswer();
                 points++;
                 hidquestion();
                 cocktail();
             } else { 
-                alert("Incorrect");
+                
                 points--;
                 wronganswer();
+                clearanswer();
             }
         })
         
         answ3.addEventListener("click", function(){
-            if(answ3.textContent == data.results[randomquestion].correct_answer){
+            if(actualresponse3 == data.results[randomquestion].correct_answer){
+                clearanswer();
                 points++;
                 hidquestion();
                 cocktail();
             } else { 
-                alert("Incorrect");
+                
                 points--;
                 wronganswer();
+                clearanswer();
             }
         })
         
         answ4.addEventListener("click", function(){
-            if(answ4.textContent = data.results[randomquestion].correct_answer){    
+            if(actualresponse4 == data.results[randomquestion].correct_answer){    
+                clearanswer();
                 points++;
                 hidquestion();
                 cocktail();
             } else { 
-                alert("Incorrect"); 
+                
                 points--;
                 wronganswer();
+                clearanswer();
             }
         })
     }
 
 
 
-})
+});
 
 
 console.log(points)
@@ -339,9 +357,16 @@ function wronganswer(){
         console.log(data);
         var newpar = document.createElement("p")
         settingscont.appendChild(newpar);
+        newpar.setAttribute("id","wrongresponse")
         newpar.innerHTML= "You dont seem so smart. Here is some information for ya: " + data[0].fact;
 
     });
 
 
 }
+
+function clearanswer(){
+    if( document.querySelector("#wrongresponse") !== null){
+    document.querySelector("#wrongresponse").remove();
+    }
+};
