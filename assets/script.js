@@ -26,14 +26,11 @@ points = 0;
 
 
 starbtn.addEventListener ("click", function(){
-<<<<<<< HEAD
     starbtn.style.display="none";
     starbtn.textContent = "Next";
     
-=======
     starbtn.textContent="Next Question";
     questlength = qlength.value; 
->>>>>>> 985e1ff5b4b7a6a23240c6a74e7be8300b6f9860
     questDif = difcat.value;
 
     requestUrl = `https://opentdb.com/api.php?amount=${questlength}&difficulty=${questDif}&type=multiple`;
@@ -112,7 +109,11 @@ starbtn.addEventListener ("click", function(){
         answ1.addEventListener("click", function(){
             if(answ1.textContent == data.results[randomquestion].correct_answer){
                 points++;
+
                 hidquestion();
+
+                alert(points);
+
                 // added Cocktail function to click
                 cocktail();
             } else { 
@@ -125,7 +126,11 @@ starbtn.addEventListener ("click", function(){
             if(answ2.textContent == data.results[randomquestion].correct_answer){
           
                 points++;
+
                 hidquestion();
+
+                alert(points);
+
                 cocktail();
             } else { 
                 alert("Incorrect");
@@ -136,7 +141,11 @@ starbtn.addEventListener ("click", function(){
         answ3.addEventListener("click", function(){
             if(answ3.textContent == data.results[randomquestion].correct_answer){
                 points++;
+
                 hidquestion();
+
+                alert(points);
+
                 cocktail();
             } else { 
                 alert("Incorrect");
@@ -147,7 +156,11 @@ starbtn.addEventListener ("click", function(){
         answ4.addEventListener("click", function(){
             if(answ4.textContent = data.results[randomquestion].correct_answer){    
                 points++;
+
                 hidquestion();
+
+                alert(points);
+
                 cocktail();
             } else { 
                 alert("Incorrect"); 
@@ -289,6 +302,10 @@ $(document).on(`click`, `.ingredients`, function() {
     var content = document.createElement(`p`);
     $(content).html(ingredients);
     $(this).parent().append(content);
+
+
+    $(this).css(`display`, `none`);
+
 });
 
 // for(var i=0; i<newarray.length; i++){

@@ -15,7 +15,9 @@
       <h1>Trivia Time</h1>
     </header>
     <!-- Section for saved cocktails -->
-    <section>
+    <section id="savedCocktails">
+      <h3>Saved Cocktails:</h3>
+      <button id="clearButton">Clear List</button>
     </section>
 <!-- Section for instructions/ questions & answers -->
     <section>
@@ -41,7 +43,12 @@
       For each correct answer, recieve a cocktail! For each wrong answer, a pixel monster will sober you up!</p>
       <button id="startButton">Start game!</button>
     </section>
-
+    <!-- Section for cocktail display -->
+    <section id="cocktailContainer">
+      <h3 id="cocktailName"></h3>
+      <p id="ingredients"></p>
+      <button id="saveButton">Save Cocktail</button>
+    </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="assets/script.js"></script>
   </body>
