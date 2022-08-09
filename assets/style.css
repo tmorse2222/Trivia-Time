@@ -1,3 +1,9 @@
 #saveButton {
     display: none;
 }
+
+#wrongresponse {
+    Padding: 10px;
+    margin: 5px;
+    color: rgb(93, 4, 4);
+}
