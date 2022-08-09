@@ -60,14 +60,19 @@ starbtn.addEventListener ("click", function(){
         var randqs = (data.results[randomquestion].question);
        
         var newh1 = document.createElement("h1");
+        newh1.classList.add("question-section");
         answers.appendChild(newh1);
         newh1.innerHTML= randqs;
 
         var list = document.createElement ("ul");
-        var answ1 = document.createElement("button")
+        var answ1 = document.createElement("button");
+        answ1.classList.add("button", "is-focused", "mx-3", "is-info", "is-rounded", "py-2", "px-3")
         var answ2 = document.createElement("button");
+        answ2.classList.add("button", "mx-3", "is-info", "is-rounded", "py-2", "px-3")
         var answ3 = document.createElement("button");
+        answ3.classList.add("button", "mx-3", "is-info", "is-rounded", "py-2", "px-3")
         var answ4 = document.createElement("button");
+        answ4.classList.add("button", "mx-3", "is-info", "is-rounded", "py-2", "px-3")
 
         newh1.appendChild(list);
     
