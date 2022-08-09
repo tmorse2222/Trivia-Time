@@ -118,7 +118,7 @@ starbtn.addEventListener ("click", function(){
 
         
         function hidquestion(){
-            starbtn.style.display="inline-block";
+            starbtn.style.display ="inline-block";
             list.remove();
             newh1.remove();
 
