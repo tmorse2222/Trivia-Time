@@ -358,7 +358,7 @@ function wronganswer(){
         var newpar = document.createElement("p")
         settingscont.appendChild(newpar);
         newpar.setAttribute("id","wrongresponse")
-        newpar.innerHTML= "So close! Here is a fun fact for ya: " + data[0].fact;
+        newpar.innerHTML= "So close, but that is incorrect! Here is a fun fact for you: " + data[0].fact;
 
     });
 
