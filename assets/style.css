@@ -7,3 +7,23 @@
     margin: 5px;
     color: rgb(93, 4, 4);
 }
+
+#cocktailContainer {
+    display: none;
+    padding: 25px;
+    margin: 10px;
+    color: rgb(93, 4, 4);
+}
+#saveButton {
+    display:none;
+}
+
+#savedCocktails {
+    Padding: 10px;
+    margin: 5px;
+}
+
+#startButton {
+    Padding: 20px;
+    margin: 10px;
+}

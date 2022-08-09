@@ -126,6 +126,8 @@ starbtn.addEventListener ("click", function(){
 
         answ1.addEventListener("click", function(){
             if(actualresponse1 == data.results[randomquestion].correct_answer){
+                $(`#saveButton`).css(`display`, `unset`);
+                $(`#cocktailContainer`).css(`display`, `unset`);
                 clearanswer();
                 points++;
                 hidquestion();
@@ -139,6 +141,8 @@ starbtn.addEventListener ("click", function(){
         
         answ2.addEventListener("click", function(){
             if(actualresponse2 == data.results[randomquestion].correct_answer){
+                $(`#saveButton`).css(`display`, `unset`);
+                $(`#cocktailContainer`).css(`display`, `unset`);
                 clearanswer();
                 points++;
                 hidquestion();
@@ -153,6 +157,8 @@ starbtn.addEventListener ("click", function(){
         
         answ3.addEventListener("click", function(){
             if(actualresponse3 == data.results[randomquestion].correct_answer){
+                $(`#saveButton`).css(`display`, `unset`);
+                $(`#cocktailContainer`).css(`display`, `unset`);
                 clearanswer();
                 points++;
                 hidquestion();
@@ -166,7 +172,9 @@ starbtn.addEventListener ("click", function(){
         })
         
         answ4.addEventListener("click", function(){
-            if(actualresponse4 == data.results[randomquestion].correct_answer){    
+            if(actualresponse4 == data.results[randomquestion].correct_answer){   
+                $(`#saveButton`).css(`display`, `unset`); 
+                $(`#cocktailContainer`).css(`display`, `unset`);
                 clearanswer();
                 points++;
                 hidquestion();
