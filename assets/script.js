@@ -283,7 +283,7 @@ $(`#saveButton`).click(function(){
           $(contain).append(saveButton);
           $(contain).attr(`class`, `saveContain row`);
           $(`#savedCocktails`).append(contain); 
-          alert(cocktailNameSave);
+        //   alert(cocktailNameSave);
 });
 
 // Function to display saved cocktails on load

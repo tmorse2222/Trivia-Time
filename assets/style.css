@@ -23,6 +23,8 @@
 #savedCocktails {
     Padding: 10px;
     margin: 5px;
+    border: solid black 3px;
+    width: fit-content
 }
 
 #startButton {
