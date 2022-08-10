@@ -95,7 +95,7 @@ starbtn.addEventListener ("click", function(){
             array.sort(() => Math.random()-.5);
         }
 
-        // shuffle(initialarray);
+        shuffle(initialarray);
 
       
 
