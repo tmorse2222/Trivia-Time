@@ -1,3 +1,8 @@
+.question-section {
+    font-size: 35px;
+    margin-top: 20px;
+}
+
 #saveButton {
     display: none;
 }
@@ -6,4 +11,42 @@
     Padding: 10px;
     margin: 5px;
     color: rgb(93, 4, 4);
+}
+
+#cocktailContainer {
+    display: none;
+    padding: 25px;
+    margin: 10px;
+    color: rgb(93, 4, 4);
+    border: solid rgb(20, 90, 165) 3px;
+    width: fit-content;
+}
+#saveButton {
+    display:none;
+}
+
+#savedCocktails {
+    Padding: 25px;
+    margin: 10px;
+    border: solid black 3px;
+    width: fit-content
+}
+
+#startButton {
+    Padding: 20px;
+    margin: 10px;
+}
+#settingscont {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button {
+    box-shadow: none !important;
+    border: solid white 2px !important;
+}
+
+.button:hover {
+    border: solid rgb(99, 4, 4) 2px !important;
 }

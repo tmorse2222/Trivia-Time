@@ -60,14 +60,19 @@ starbtn.addEventListener ("click", function(){
         var randqs = (data.results[randomquestion].question);
        
         var newh1 = document.createElement("h1");
+        newh1.classList.add("question-section");
         answers.appendChild(newh1);
         newh1.innerHTML= randqs;
 
         var list = document.createElement ("ul");
-        var answ1 = document.createElement("button")
+        var answ1 = document.createElement("button");
+        answ1.classList.add("button", "is-focused", "mx-3", "is-info", "is-rounded", "py-2", "px-3")
         var answ2 = document.createElement("button");
+        answ2.classList.add("button", "mx-3", "is-info", "is-rounded", "py-2", "px-3")
         var answ3 = document.createElement("button");
+        answ3.classList.add("button", "mx-3", "is-info", "is-rounded", "py-2", "px-3")
         var answ4 = document.createElement("button");
+        answ4.classList.add("button", "mx-3", "is-info", "is-rounded", "py-2", "px-3")
 
         newh1.appendChild(list);
     
@@ -90,7 +95,7 @@ starbtn.addEventListener ("click", function(){
             array.sort(() => Math.random()-.5);
         }
 
-        // shuffle(initialarray);
+        shuffle(initialarray);
 
       
 
@@ -118,7 +123,7 @@ starbtn.addEventListener ("click", function(){
 
         
         function hidquestion(){
-            starbtn.style.display ="inline-block";
+            starbtn.style.display ="inline-flex";
             list.remove();
             newh1.remove();
 
@@ -126,6 +131,8 @@ starbtn.addEventListener ("click", function(){
 
         answ1.addEventListener("click", function(){
             if(actualresponse1 == data.results[randomquestion].correct_answer){
+                $(`#saveButton`).css(`display`, `unset`);
+                $(`#cocktailContainer`).css(`display`, `block`);
                 clearanswer();
                 points++;
                 hidquestion();
@@ -139,6 +146,8 @@ starbtn.addEventListener ("click", function(){
         
         answ2.addEventListener("click", function(){
             if(actualresponse2 == data.results[randomquestion].correct_answer){
+                $(`#saveButton`).css(`display`, `unset`);
+                $(`#cocktailContainer`).css(`display`, `block`);
                 clearanswer();
                 points++;
                 hidquestion();
@@ -153,6 +162,8 @@ starbtn.addEventListener ("click", function(){
         
         answ3.addEventListener("click", function(){
             if(actualresponse3 == data.results[randomquestion].correct_answer){
+                $(`#saveButton`).css(`display`, `unset`);
+                $(`#cocktailContainer`).css(`display`, `block`);
                 clearanswer();
                 points++;
                 hidquestion();
@@ -166,7 +177,9 @@ starbtn.addEventListener ("click", function(){
         })
         
         answ4.addEventListener("click", function(){
-            if(actualresponse4 == data.results[randomquestion].correct_answer){    
+            if(actualresponse4 == data.results[randomquestion].correct_answer){   
+                $(`#saveButton`).css(`display`, `unset`); 
+                $(`#cocktailContainer`).css(`display`, `block`);
                 clearanswer();
                 points++;
                 hidquestion();
@@ -275,7 +288,7 @@ $(`#saveButton`).click(function(){
           $(contain).append(saveButton);
           $(contain).attr(`class`, `saveContain row`);
           $(`#savedCocktails`).append(contain); 
-          alert(cocktailNameSave);
+        //   alert(cocktailNameSave);
 });
 
 // Function to display saved cocktails on load
