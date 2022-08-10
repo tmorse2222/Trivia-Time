@@ -34,7 +34,7 @@ starbtn.addEventListener ("click", function(){
     starbtn.style.display="none";
     starbtn.textContent = "Next";
     
-
+$(`#cocktailContainer`).css(`display`, `none`);
     starbtn.textContent="Next Question";
     questlength =  1; 
 
