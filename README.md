@@ -19,7 +19,7 @@ User Story:<br>
 <br>
 Main responsibilities:<br>
 Gregory Ali: Javascript/API<br>
-James Zagorski: CSS, Bulma<br>
+James Zagorski: CSS, Bulma, User Experience<br>
 Jean Bissai: HTML and content edits<br>
 Tyler Morse: Project Manager (support in all areas of application)<br>
 
